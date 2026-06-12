@@ -19,10 +19,21 @@
 			ease: 'power3.out',
 			scrollTrigger: {
 				trigger: sectionEl,
-				start: 'top 75%'
+				start: 'top 85%',
+				end: 'bottom 15%',
+				toggleActions: 'play reverse play reverse'
 			}
 		});
 	});
+
+	function handleMouseMove(e: MouseEvent) {
+		const card = e.currentTarget as HTMLElement;
+		const rect = card.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+		card.style.setProperty('--mouse-x', `${x}px`);
+		card.style.setProperty('--mouse-y', `${y}px`);
+	}
 </script>
 
 <section id="who" bind:this={sectionEl}>
@@ -36,7 +47,7 @@
 
 		<div class="cards">
 			{#each interests as card, i}
-				<article class="card glass-card">
+				<article class="card glass-card mouse-glow" onmousemove={handleMouseMove}>
 					<span class="icon">{card.icon}</span>
 					<h3>{card.title}</h3>
 					<p>{card.body}</p>

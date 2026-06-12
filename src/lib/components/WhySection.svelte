@@ -11,12 +11,18 @@
 		const { ScrollTrigger } = await import('gsap/ScrollTrigger');
 		gsap.registerPlugin(ScrollTrigger);
 
-		gsap.from(sectionEl.querySelector('.quote-block'), {
-			scale: 0.95,
+		gsap.from(sectionEl.querySelectorAll('.why-grid > div, .quote-block'), {
+			y: 40,
 			opacity: 0,
-			duration: 1,
+			duration: 0.8,
+			stagger: 0.15,
 			ease: 'power2.out',
-			scrollTrigger: { trigger: sectionEl, start: 'top 70%' }
+			scrollTrigger: {
+				trigger: sectionEl,
+				start: 'top 85%',
+				end: 'bottom 15%',
+				toggleActions: 'play reverse play reverse'
+			}
 		});
 	});
 </script>

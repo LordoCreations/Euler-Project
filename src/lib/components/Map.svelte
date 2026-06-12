@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { fly, fade } from 'svelte/transition';
 	import { mapLocations } from '$lib/data/euler';
 
 	let mapContainer: HTMLDivElement;
 	let activeId = $state(mapLocations[0].id);
 	let mapInstance: import('leaflet').Map | null = null;
 	let sectionEl: HTMLElement;
+	const markers: Record<string, import('leaflet').CircleMarker> = {};
 
 	const activeLocation = $derived(mapLocations.find((l) => l.id === activeId) ?? mapLocations[0]);
 
@@ -38,9 +40,10 @@
 				fillOpacity: 0.85
 			}).addTo(mapInstance!);
 
+			markers[loc.id] = marker;
+
 			marker.on('click', () => {
 				activeId = loc.id;
-				mapInstance?.flyTo([loc.lat, loc.lng], 6, { duration: 1.2 });
 			});
 
 			marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.period}`);
@@ -63,9 +66,48 @@
 				opacity: 0,
 				duration: 0.8,
 				stagger: 0.15,
-				scrollTrigger: { trigger: sectionEl, start: 'top 70%' }
+				scrollTrigger: {
+					trigger: sectionEl,
+					start: 'top 85%',
+					end: 'bottom 15%',
+					toggleActions: 'play reverse play reverse'
+				}
 			});
 		}
+
+		// Svelte 5 effect to sync active marker state, map view, and popup
+		$effect(() => {
+			if (!mapInstance) return;
+			const loc = mapLocations.find((l) => l.id === activeId);
+			if (loc) {
+				mapInstance.flyTo([loc.lat, loc.lng], 6, { duration: 1.2 });
+			}
+
+			Object.entries(markers).forEach(([id, marker]) => {
+				if (id === activeId) {
+					marker.setStyle({
+						radius: 12,
+						fillColor: '#7ec8ff',
+						color: '#ffffff',
+						weight: 3,
+						fillOpacity: 0.95
+					});
+					setTimeout(() => {
+						if (activeId === id) {
+							marker.openPopup();
+						}
+					}, 350);
+				} else {
+					marker.setStyle({
+						radius: 8,
+						fillColor: '#65adf1',
+						color: '#7ec8ff',
+						weight: 2,
+						fillOpacity: 0.85
+					});
+				}
+			});
+		});
 
 		setTimeout(() => mapInstance?.invalidateSize(), 200);
 	});
@@ -76,10 +118,6 @@
 
 	function selectLocation(id: string) {
 		activeId = id;
-		const loc = mapLocations.find((l) => l.id === id);
-		if (loc && mapInstance) {
-			mapInstance.flyTo([loc.lat, loc.lng], 6, { duration: 1.2 });
-		}
 	}
 </script>
 
@@ -111,17 +149,25 @@
 				</div>
 
 				<div class="location-detail glass-card">
-					<span class="period">{activeLocation.period}</span>
-					<h3>{activeLocation.name}</h3>
-					<p>{activeLocation.description}</p>
-					<div class="collaborators">
-						<span class="collab-label">Collaborators</span>
-						<div class="collab-tags">
-							{#each activeLocation.collaborators as name}
-								<span class="collab-tag">{name}</span>
-							{/each}
+					{#key activeId}
+						<div
+							in:fly={{ y: 15, duration: 350, delay: 100 }}
+							out:fade={{ duration: 100 }}
+							class="location-detail-content"
+						>
+							<span class="period">{activeLocation.period}</span>
+							<h3>{activeLocation.name}</h3>
+							<p>{activeLocation.description}</p>
+							<div class="collaborators">
+								<span class="collab-label">Collaborators</span>
+								<div class="collab-tags">
+									{#each activeLocation.collaborators as name}
+										<span class="collab-tag">{name}</span>
+									{/each}
+								</div>
+							</div>
 						</div>
-					</div>
+					{/key}
 				</div>
 			</div>
 		</div>
@@ -193,6 +239,14 @@
 
 	.location-detail {
 		padding: 1.75rem;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		min-height: 290px;
+	}
+
+	.location-detail-content {
+		grid-area: 1 / 1 / 2 / 2;
 	}
 
 	.period {

@@ -19,12 +19,26 @@
 			duration: 0.7,
 			stagger: 0.08,
 			ease: 'power3.out',
-			scrollTrigger: { trigger: sectionEl, start: 'top 75%' }
+			scrollTrigger: {
+				trigger: sectionEl,
+				start: 'top 85%',
+				end: 'bottom 15%',
+				toggleActions: 'play reverse play reverse'
+			}
 		});
 	});
 
 	function toggle(id: string) {
 		expandedId = expandedId === id ? null : id;
+	}
+
+	function handleMouseMove(e: MouseEvent) {
+		const card = e.currentTarget as HTMLElement;
+		const rect = card.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+		card.style.setProperty('--mouse-x', `${x}px`);
+		card.style.setProperty('--mouse-y', `${y}px`);
 	}
 </script>
 
@@ -40,12 +54,13 @@
 		<div class="gallery-grid">
 			{#each gallery as item}
 				<div
-					class="gallery-card glass-card"
+					class="gallery-card glass-card mouse-glow"
 					class:expanded={expandedId === item.id}
 					role="button"
 					tabindex="0"
 					onclick={() => toggle(item.id)}
 					onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle(item.id))}
+					onmousemove={handleMouseMove}
 				>
 					<div class="card-image-wrap">
 						<img src={item.image} alt={item.imageAlt} loading="lazy" />

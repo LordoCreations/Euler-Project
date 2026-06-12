@@ -17,7 +17,12 @@
 			duration: 0.7,
 			stagger: 0.1,
 			ease: 'power2.out',
-			scrollTrigger: { trigger: sectionEl, start: 'top 70%' }
+			scrollTrigger: {
+				trigger: sectionEl,
+				start: 'top 85%',
+				end: 'bottom 15%',
+				toggleActions: 'play reverse play reverse'
+			}
 		});
 	});
 </script>

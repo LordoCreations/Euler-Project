@@ -44,9 +44,8 @@ export const hero = {
 	years: '1707 – 1783',
 	tagline: 'The Master of Us All',
 	intro: `Leonhard Euler was a Swiss mathematician and physicist whose work shaped nearly every branch of 18th-century mathematics. From Basel to St. Petersburg to Berlin and back again, he produced more than 800 books and papers—integrating Leibniz's differential calculus with Newton's method of fluxions, inventing much of modern mathematical notation, and continuing to publish even after losing his sight entirely.`,
-	portrait:
-		'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Leonhard_Euler_-_Jakob_Emanuel_Handmann_%28Kunstmuseum_Basel%29.jpg/440px-Leonhard_Euler_-_Jakob_Emanuel_Handmann_%28Kunstmuseum_Basel%29.jpg',
-	portraitAlt: 'Portrait of Leonhard Euler by Jakob Emanuel Handmann'
+	portrait: '/eulerportrait.jpg',
+	portraitAlt: 'Portrait of Leonhard Euler in warm lighting'
 };
 
 export const interests: InterestCard[] = [
@@ -176,54 +175,48 @@ export const gallery: GalleryItem[] = [
 	{
 		id: 'notation',
 		title: 'Mathematical Notation',
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Euler%27s_identity.svg/440px-Euler%27s_identity.svg.png',
-		imageAlt: 'Euler\'s identity e to the i pi plus 1 equals 0',
+		image: 'https://images.unsplash.com/photo-1453733190148-c44698c26588?q=80&w=800',
+		imageAlt: 'Handwritten vintage mathematics on parchment paper',
 		body: 'We owe to Euler the notation f(x) for a function (1734), e for the base of natural logarithms (1727), i for √−1 (1777), π for pi, Σ for summation (1755), and finite-difference symbols Δy and Δ²y—symbols still used in every calculus classroom today.',
 		tag: 'Calculus'
 	},
 	{
 		id: 'konigsberg',
 		title: 'Seven Bridges of Königsberg',
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Konigsberg_bridges.png/440px-Konigsberg_bridges.png',
-		imageAlt: 'Diagram of the seven bridges of Königsberg',
+		image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800',
+		imageAlt: 'Vintage European stone bridges over a scenic river at sunset',
 		body: 'In 1736, Euler solved the famous puzzle: can you walk through the city crossing each of its seven bridges exactly once? His proof that it was impossible founded the field of graph theory—a branch of mathematics with applications from GPS to social networks.',
 		tag: 'Fun Fact'
 	},
 	{
 		id: 'blind',
 		title: 'Blind but Unstoppable',
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Old_Saint_Petersburg_Stock_Exchange_and_Rostral_Columns.jpg/440px-Old_Saint_Petersburg_Stock_Exchange_and_Rostral_Columns.jpg',
-		imageAlt: 'Historic St. Petersburg where Euler spent his final years',
+		image: 'https://images.unsplash.com/photo-1549877427-0cf09848523c?q=80&w=800',
+		imageAlt: 'Stately classical architectural pillars in warm light',
 		body: 'Fully blind from 1766, Euler continued to produce roughly half of his total output—dictating papers to scribes and performing complex calculations entirely in his head. His productivity barely slowed.',
 		tag: 'Fun Fact'
 	},
 	{
 		id: 'number-theory',
 		title: 'Number Theory',
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Goldbach%27s_conjecture_svg.svg/440px-Goldbach%27s_conjecture_svg.svg.png',
-		imageAlt: 'Visual representation of number theory concepts',
+		image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=800',
+		imageAlt: 'Vintage chalk mathematical equations on a dark board',
 		body: 'Throughout his life Euler was absorbed by the properties of integers. His greatest number-theoretic discovery, the law of quadratic reciprocity (1783), remains essential to modern cryptography and algebra.',
 		tag: 'Mathematics'
 	},
 	{
 		id: 'bernoulli',
 		title: 'The Bernoulli Legacy',
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Johann_I_Bernoulli.jpg/440px-Johann_I_Bernoulli.jpg',
-		imageAlt: 'Portrait of Johann Bernoulli',
+		image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800',
+		imageAlt: 'Cozy historical library with leather-bound books in soft warm light',
 		body: 'Johann Bernoulli\'s mentorship in Basel shaped Euler\'s entire career. The Sunday tutorial method—rigorous self-study with expert guidance when stuck—became Euler\'s model for mathematical education in Russia.',
 		tag: 'Influence'
 	},
 	{
 		id: 'mechanics',
 		title: 'Analytical Mechanics',
-		image:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Principia_Mathematica_cover.jpg/440px-Principia_Mathematica_cover.jpg',
-		imageAlt: 'Classical mechanics textbook cover',
+		image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800',
+		imageAlt: 'Close up of historical brass mechanical gears under warm illumination',
 		body: 'Euler laid the foundation of analytical mechanics in Theory of the Motions of Rigid Bodies (1765), studied lunar theory with Clairaut, and explored elasticity, acoustics, hydraulics, and the wave theory of light.',
 		tag: 'Physics'
 	}

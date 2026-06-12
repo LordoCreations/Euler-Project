@@ -5,21 +5,21 @@
 :root {
     /* --- NON-BLUE WARM PALETTE RECONSTRUCTION --- */
     --color-dark-void: #090a0b;     /* Clean pitch black for ultimate background contrast */
-    --color-espresso-bg: #2d2b2a;      /* Rich dark midtone */
-	--color-espresso: #c37c59;      /* Rich dark midtone */
-    --color-warm-gray: #e7aa82;     /* Structural borders and depth */
-    --color-warm-sand: #e6dad0;     /* Ultra-crisp sand text and bright highlights */
-    --color-ivory: #fcf9f6;         /* Added a brilliant, ultra-light warm cream for text gradients */
+    --color-espresso-bg: #2d2b2a;  /* Rich dark midtone background layer */
+    --color-espresso: #c37c59;     /* Warm highlight accent */
+    --color-warm-gray: #e7aa82;    /* Structural borders and warm depth */
+    --color-warm-sand: #e6dad0;    /* Ultra-crisp sand text and bright highlights */
+    --color-ivory: #fcf9f6;        /* Brilliant, ultra-light warm cream for text gradients */
 
     /* --- THEME MAPPING --- */
     --bg-deep: var(--color-dark-void);
     --bg-surface: var(--color-espresso-bg);
     
-    /* Apple Liquid Glass */
-    --bg-card: rgba(255, 255, 255, 0.035);
-    --bg-card-hover: rgba(255, 255, 255, 0.07);
-    --border: rgba(255, 255, 255, 0.09);
-    --border-glow: rgba(230, 218, 208, 0.4);
+    /* Apple Liquid Glass Baselines */
+    --bg-card: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    --bg-card-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-glow: rgba(231, 170, 130, 0.35);
     
     --text: var(--color-warm-sand);
     --text-muted: #c2b5ab;          
@@ -28,19 +28,19 @@
     --accent-bright: var(--color-warm-sand);
     --accent-secondary: var(--color-warm-gray);
     
-    /* FIX: Changed gradient to stay entirely within light, high-contrast warm tones */
+    /* Light, high-contrast warm tone header gradient */
     --gradient-hero: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-warm-sand) 100%);
     
     --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230, 218, 208, 0.08), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(45, 43, 42, 0.2), transparent),
-        radial-gradient(ellipse 50% 30% at 10% 80%, rgba(74, 71, 69, 0.1), transparent);
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(195, 124, 89, 0.05), transparent),
+        radial-gradient(ellipse 50% 30% at 10% 80%, rgba(231, 170, 130, 0.03), transparent);
         
     --font-sans: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --radius: 20px;                 
     --radius-sm: 12px;
     --nav-height: 72px;
-    --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+    --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Custom fluid Apple ease-out */
 }
 
 *,
@@ -149,33 +149,70 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
-/* --- APPLE LIQUID GLASS CARD --- */
+/* --- ADVANCED APPLE LIQUID GLASS CARD --- */
 .glass-card {
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    backdrop-filter: blur(24px) saturate(140%); 
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    backdrop-filter: blur(28px) saturate(160%); /* Deepened blur and boosted saturation for genuine refraction aesthetics */
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    overflow: hidden;
+    
+    /* Stacked Interlocking Shadows: 
+       1. Top specular edge 1px reflection
+       2. Bottom rim core shade
+       3. Dynamic internal center lighting drop
+       4. Soft structural drop shadow */
     box-shadow: 
-        0 4px 30px rgba(0, 0, 0, 0.5),
-        inset 0 1px 1px rgba(255, 255, 255, 0.12); 
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.5),
+        inset 0 12px 24px -10px rgba(255, 255, 255, 0.03),
+        0 4px 30px rgba(0, 0, 0, 0.55),
+        0 1px 2px rgba(0, 0, 0, 0.3);
+        
     transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+/* Fresnel Surface Gloss Overlay Sheets */
+.glass-card::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* Expanded to 100% height and width to prevent a boxed or cloudy look */
+    
+    /* Dual-point ultra-faint lighting setup */
+    background: 
+        radial-gradient(circle at 15% 15%, rgba(230, 218, 208, 0.035) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(195, 124, 89, 0.015) 0%, transparent 60%);
+        
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity var(--transition);
+}
+
+.glass-card:hover::after {
+    /* Slightly intensify the dual-point gleams on hover instead of washing out the background */
+    background: 
+        radial-gradient(circle at 15% 15%, rgba(230, 218, 208, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(195, 124, 89, 0.03) 0%, transparent 60%);
 }
 
 .glass-card:hover {
     background: var(--bg-card-hover);
     border-color: var(--border-glow);
-    transform: translateY(-2px); 
+    transform: translateY(-3px); 
     box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.65),
-        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.6),
+        inset 0 16px 32px -8px rgba(255, 255, 255, 0.05),
+        0 16px 40px rgba(0, 0, 0, 0.7),
+        0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Mouse-tracking glowing glass */
+/* Mouse-tracking glowing glass variations */
 .glass-card.mouse-glow {
-    background: radial-gradient(circle 220px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.04), transparent 80%), var(--bg-card);
-    overflow: hidden;
+    /* Lowered opacity from 0.03 to 0.012, reduced radius slightly from 220px to 180px */
+    background: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.012), transparent 80%), var(--bg-card);
 }
 
 .glass-card.mouse-glow::before {
@@ -184,7 +221,8 @@ section {
     inset: 0;
     border-radius: inherit;
     padding: 1px; 
-    background: radial-gradient(circle 220px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.25), transparent 80%);
+    /* Calmed the border accent glow down significantly from 0.22 to 0.08 */
+    background: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.08), transparent 80%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -194,10 +232,8 @@ section {
 }
 
 .glass-card.mouse-glow:hover {
-    background: radial-gradient(circle 220px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.06), transparent 80%), var(--bg-card-hover);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.65),
-        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    /* Hover state capped at a soft 0.025 instead of 0.05 */
+    background: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.025), transparent 80%), var(--bg-card-hover);
 }
 
 .mesh-bg {

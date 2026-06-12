@@ -141,6 +141,7 @@
 		padding: 0.5rem 0.875rem;
 		border-radius: var(--radius-sm);
 		transition: color var(--transition), background var(--transition);
+		text-decoration: none;
 	}
 
 	.link:hover,

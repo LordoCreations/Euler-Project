@@ -32,7 +32,7 @@
 		<div class="calculus-text">
 			<p class="section-label" data-reveal>{calculus.title}</p>
 			<h2 class="section-title" data-reveal>
-				Shaping the <span class="gradient-text">language of change</span>
+				Shaping <span class="gradient-text">Calculus</span>
 			</h2>
 			<p class="body" data-reveal>{@html calculus.body}</p>
 		</div>

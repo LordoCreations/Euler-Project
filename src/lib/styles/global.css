@@ -26,7 +26,7 @@
     --accent-bright: var(--color-warm-sand);
     --accent-secondary: var(--color-warm-gray);
     
-    --gradient-hero: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-warm-sand) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--color-espresso) 0%, var(--color-warm-gray) 100%);
     
     --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230, 218, 208, 0.08), transparent),
         radial-gradient(ellipse 60% 40% at 80% 60%, rgba(195, 124, 89, 0.05), transparent),

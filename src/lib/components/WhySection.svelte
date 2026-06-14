@@ -32,7 +32,7 @@
 		<div>
 			<p class="section-label">{why.title}</p>
 			<h2 class="section-title">
-				A deliberate path to <span class="gradient-text">discovery</span>
+				Path to <span class="gradient-text">discovery</span>
 			</h2>
 			<p class="body">{why.body}</p>
 		</div>

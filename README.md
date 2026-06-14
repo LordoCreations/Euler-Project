@@ -37,4 +37,4 @@ npm run preview
 
 ## Content
 
-All presentation text lives in [`src/lib/data/euler.ts`](src/lib/data/euler.ts) — edit there to replace placeholders with your final research.
+All presentation text lives in [`src/lib/data/euler.ts`](src/lib/data/euler.ts]

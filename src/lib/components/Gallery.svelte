@@ -48,11 +48,10 @@
   <div class="section-inner">
     <p class="section-label">Discoveries & Fun Facts</p>
     <h2 class="section-title">
-      Gallery of <span class="gradient-text">genius</span>
+      Gallery
     </h2>
     <p class="section-subtitle">
-      Click any card to expand—Euler's reach extended from notation to graph
-      theory, mechanics, and beyond.
+      Click any card to expand
     </p>
 
     <div class="gallery-grid">

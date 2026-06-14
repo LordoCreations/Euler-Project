@@ -128,8 +128,7 @@
 			Euler's <span class="gradient-text">journey across Europe</span>
 		</h2>
 		<p class="section-subtitle" data-map-reveal>
-			Three cities shaped his career. Click a location to explore who he worked with and what he
-			accomplished there.
+			Click a location to explore who he worked with and what he accomplished there.
 		</p>
 
 		<div class="map-layout">

@@ -159,8 +159,7 @@
         Interactive <span class="gradient-text">Timeline</span>
       </h2>
       <p class="section-subtitle">
-        Scroll inside the greater wrapper box to progress step-by-step through
-        Euler's life.
+        Scroll inside through the timeline for a quick overview of Euler's life
       </p>
     </div>
   </div>

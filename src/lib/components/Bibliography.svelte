@@ -36,10 +36,7 @@
 <section id="bibliography" bind:this={sectionEl} class="bib-section">
 	<div class="section-inner">
 		<p class="section-label">References</p>
-		<h2 class="section-title">Bibliography <span class="gradient-text">(APA)</span></h2>
-		<p class="section-subtitle">
-			Sources cited in this presentation. Formatted for print submission.
-		</p>
+		<h2 class="section-title">Bibliography </h2>
 
 		<ol class="bib-list">
 			{#each bibliography as entry}

@@ -68,7 +68,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Leonhard Euler — Interactive Presentation</title>
+	<title>Leonhard Euler</title>
 	<meta
 		name="description"
 		content="An interactive presentation on Leonhard Euler's life, calculus contributions, and legacy."

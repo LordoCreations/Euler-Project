@@ -3,19 +3,17 @@
 @plugin "daisyui";
 
 :root {
-    /* --- NON-BLUE WARM PALETTE RECONSTRUCTION --- */
-    --color-dark-void: #090a0b;     /* Clean pitch black for ultimate background contrast */
-    --color-espresso-bg: #2d2b2a;  /* Rich dark midtone background layer */
-    --color-espresso: #c37c59;     /* Warm highlight accent */
-    --color-warm-gray: #e7aa82;    /* Structural borders and warm depth */
-    --color-warm-sand: #e6dad0;    /* Ultra-crisp sand text and bright highlights */
-    --color-ivory: #fcf9f6;        /* Brilliant, ultra-light warm cream for text gradients */
+    --color-dark-void: #090a0b;
+    --color-espresso-bg: #2d2b2a;
+    --color-espresso: #c37c59;
+    --color-warm-gray: #e7aa82;
+    --color-warm-sand: #e6dad0;
+    --color-ivory: #fcf9f6;
 
     /* --- THEME MAPPING --- */
     --bg-deep: var(--color-dark-void);
     --bg-surface: var(--color-espresso-bg);
     
-    /* Apple Liquid Glass Baselines */
     --bg-card: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
     --bg-card-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
     --border: rgba(255, 255, 255, 0.08);
@@ -28,7 +26,6 @@
     --accent-bright: var(--color-warm-sand);
     --accent-secondary: var(--color-warm-gray);
     
-    /* Light, high-contrast warm tone header gradient */
     --gradient-hero: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-warm-sand) 100%);
     
     --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(230, 218, 208, 0.08), transparent),
@@ -177,9 +174,8 @@ section {
 .glass-card::after {
     content: '';
     position: absolute;
-    inset: 0; /* Expanded to 100% height and width to prevent a boxed or cloudy look */
+    inset: 0;
     
-    /* Dual-point ultra-faint lighting setup */
     background: 
         radial-gradient(circle at 15% 15%, rgba(230, 218, 208, 0.035) 0%, transparent 50%),
         radial-gradient(circle at 85% 85%, rgba(195, 124, 89, 0.015) 0%, transparent 60%);
@@ -190,7 +186,6 @@ section {
 }
 
 .glass-card:hover::after {
-    /* Slightly intensify the dual-point gleams on hover instead of washing out the background */
     background: 
         radial-gradient(circle at 15% 15%, rgba(230, 218, 208, 0.06) 0%, transparent 50%),
         radial-gradient(circle at 85% 85%, rgba(195, 124, 89, 0.03) 0%, transparent 60%);
@@ -210,7 +205,6 @@ section {
 
 /* Mouse-tracking glowing glass variations */
 .glass-card.mouse-glow {
-    /* Lowered opacity from 0.03 to 0.012, reduced radius slightly from 220px to 180px */
     background: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.012), transparent 80%), var(--bg-card);
 }
 
@@ -231,7 +225,6 @@ section {
 }
 
 .glass-card.mouse-glow:hover {
-    /* Hover state capped at a soft 0.025 instead of 0.05 */
     background: radial-gradient(circle 180px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.025), transparent 80%), var(--bg-card-hover);
 }
 

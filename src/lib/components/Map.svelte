@@ -159,7 +159,7 @@
 							<h3>{activeLocation.name}</h3>
 							<p>{activeLocation.description}</p>
 							<div class="collaborators">
-								<span class="collab-label">Collaborators</span>
+								<span class="collab-label">Companions</span>
 								<div class="collab-tags">
 									{#each activeLocation.collaborators as name}
 										<span class="collab-tag">{name}</span>

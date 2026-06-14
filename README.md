@@ -9,9 +9,9 @@ A single-page interactive website presenting Leonhard Euler's life, calculus con
 - **Interactive Timeline** — scroll-driven life events
 - **Calculus Contributions** — key textbooks and innovations
 - **Gallery** — expandable cards (notation, Königsberg bridges, etc.)
-- **Interactive Map** — Basel, St. Petersburg, Berlin
-- **Why** — motivation and Bernoulli quote
-- **Bibliography** — APA format (print-friendly)
+- **Interactive Map** — Basel, Riehen, St. Petersburg, Berlin
+- **Why** — motivations
+- **Bibliography** — APA format
 
 ## Development
 

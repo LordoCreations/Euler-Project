@@ -35,14 +35,6 @@ npm run preview
 2. Enable **Pages** → Source: **GitHub Actions**
 3. The workflow deploys automatically on push to `main`
 
-Site URL: `https://<username>.github.io/Euler-Project/`
-
 ## Content
 
 All presentation text lives in [`src/lib/data/euler.ts`](src/lib/data/euler.ts) — edit there to replace placeholders with your final research.
-
-## Sources
-
-- [Britannica — Leonhard Euler](https://www.britannica.com/biography/Leonhard-Euler)
-- [MacTutor — Leonhard Euler](https://mathshistory.st-andrews.ac.uk/Biographies/Euler/)
-- [MAA Convergence — Euler and the Bernoullis](https://old.maa.org/press/periodicals/convergence/euler-and-the-bernoullis-learning-by-teaching-introduction)

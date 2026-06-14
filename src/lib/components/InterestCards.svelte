@@ -41,8 +41,7 @@
 		<p class="section-label">Who was Euler?</p>
 		<h2 class="section-title">Mathematician, physicist, <span class="gradient-text">polymath</span></h2>
 		<p class="section-subtitle">
-			Swiss-born and endlessly curious—Euler's interests stretched far beyond the pages of a calculus
-			textbook.
+			Euler had many roles in his life: mathematician, physicist, astronomer, logician, geographer, music theorist and engineer.
 		</p>
 
 		<div class="cards">

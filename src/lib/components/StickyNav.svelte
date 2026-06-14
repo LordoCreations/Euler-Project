@@ -110,7 +110,7 @@
 		width: 36px;
 		height: 36px;
 		border-radius: 10px;
-		background: var(--gradient-hero);
+		/* background: var(--gradient-hero); */
 		font-family: var(--font-mono);
 		font-style: italic;
 		font-weight: 700;

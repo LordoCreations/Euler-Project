@@ -53,36 +53,66 @@
     };
   });
 
+  // Add these control variables to your script
+  let edgeScrollIntent = false;
+  let edgeResetTimer: ReturnType<typeof setTimeout>;
+
   function handleGreaterBoxWheel(e: WheelEvent) {
     if (!trackEl) return;
 
-    // Condition 1: If we are at the first item and user scrolls up, allow page to scroll up natively
-    if (e.deltaY < 0 && activeIndex === 0) return;
+    const isAtStart = activeIndex === 0;
+    const isAtEnd = activeIndex === timeline.length - 1;
+    const isScrollingUp = e.deltaY < 0;
+    const isScrollingDown = e.deltaY > 0;
 
-    // Condition 2: If we are at the last item and user scrolls down, allow page to scroll down natively
-    if (e.deltaY > 0 && activeIndex === timeline.length - 1) return;
+    // 1. Core Safety: If we are actively transitioning between timeline steps,
+    // lock down ALL scrolling to prevent native page jitter.
+    if (isScrollLocked) {
+      e.preventDefault();
+      return;
+    }
 
-    // Prevent global page scrolling since we are inside the active zones
+    // 2. Detect if the user is trying to push past the timeline bounds
+    if ((isAtStart && isScrollingUp) || (isAtEnd && isScrollingDown)) {
+      // Clear any pending resets since the user is actively scrolling at the edge
+      clearTimeout(edgeResetTimer);
+
+      if (!edgeScrollIntent) {
+        // Absorb the impact of this scroll momentum entirely
+        e.preventDefault();
+
+        // Start a cooldown. The user must stop scrolling for at least 250ms
+        // before the edge will "unlock" and let them pass to the native page.
+        edgeResetTimer = setTimeout(() => {
+          edgeScrollIntent = true;
+        }, 250);
+
+        return;
+      }
+
+      // If edgeScrollIntent is true, we intentionally let e.preventDefault() bypass
+      // so the page natively handles the scroll.
+      return;
+    }
+
+    // 3. Reset the intent flag if the user reverses direction or stays inside active elements
+    if (edgeScrollIntent) {
+      edgeScrollIntent = false;
+    }
+    clearTimeout(edgeResetTimer);
+
+    // Prevent standard browser scrolling while stepping through active internal nodes
     e.preventDefault();
 
-    // If the virtual lock is active, ignore incoming scroll ticks (creates the "pause/resistance" feel)
-    if (isScrollLocked) return;
-
-    // Determine step direction based on scroll velocity
-    if (e.deltaY > 0) {
-      // Scroll down/right -> Step forward
-      if (activeIndex < timeline.length - 1) {
-        activeIndex++;
-        scrollToActiveNode();
-        triggerScrollLock();
-      }
-    } else if (e.deltaY < 0) {
-      // Scroll up/left -> Step backward
-      if (activeIndex > 0) {
-        activeIndex--;
-        scrollToActiveNode();
-        triggerScrollLock();
-      }
+    // 4. Step Progression
+    if (isScrollingDown && activeIndex < timeline.length - 1) {
+      activeIndex++;
+      scrollToActiveNode();
+      triggerScrollLock();
+    } else if (isScrollingUp && activeIndex > 0) {
+      activeIndex--;
+      scrollToActiveNode();
+      triggerScrollLock();
     }
   }
 

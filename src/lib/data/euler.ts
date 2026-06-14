@@ -305,11 +305,18 @@ export const mapLocations: MapLocation[] = [
 
 export const bibliography: BibliographyEntry[] = [
   {
-    authors: "Wikipedia contributors",
-    year: "2026",
+    authors: "Britannica, T. Editors of Encyclopedia",
+    year: "2024",
     title: "Leonhard Euler",
-    source: "Wikipedia",
-    url: "https://en.wikipedia.org/wiki/Leonhard-Euler",
+    source: "Encyclopedia Britannica",
+    url: "https://www.britannica.com/biography/Leonhard-Euler",
+  },
+  {
+    authors: "Stephan C. Carlson",
+    year: "2025",
+    title: "Königsberg bridge problem",
+    source: "Encyclopedia Britannica",
+    url: "https://www.britannica.com/science/Konigsberg-bridge-problem",
   },
   {
     authors: "Kronecker Wallis",
@@ -319,11 +326,11 @@ export const bibliography: BibliographyEntry[] = [
     url: "https://www.kroneckerwallis.com/leonhard-euler-the-most-prolific-mathematician-in-history/",
   },
   {
-    authors: "Wikipedia contributors",
-    year: "2026",
-    title: "Basel",
-    source: "Wikipedia",
-    url: "https://en.wikipedia.org/wiki/Basel",
+    authors: "O'Connor, J. J., & Robertson, E. F.",
+    year: "1998",
+    title: "Leonhard Euler",
+    source: "MacTutor History of Mathematics Archive, University of St Andrews",
+    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Euler/",
   },
   {
     authors: "Singh, H., & Bal, S. S.",
@@ -333,17 +340,17 @@ export const bibliography: BibliographyEntry[] = [
     url: "https://www.oiirj.org/oiirj/may-june2016/08.pdf",
   },
   {
-    authors: "O'Connor, J. J., & Robertson, E. F.",
-    year: "1998",
-    title: "Leonhard Euler",
-    source: "MacTutor History of Mathematics Archive, University of St Andrews",
-    url: "https://mathshistory.st-andrews.ac.uk/Biographies/Euler/",
+    authors: "Wikipedia contributors",
+    year: "2026",
+    title: "Basel",
+    source: "Wikipedia",
+    url: "https://en.wikipedia.org/wiki/Basel",
   },
   {
-    authors: "Britannica, T. Editors of Encyclopedia",
-    year: "2024",
+    authors: "Wikipedia contributors",
+    year: "2026",
     title: "Leonhard Euler",
-    source: "Encyclopedia Britannica",
-    url: "https://www.britannica.com/biography/Leonhard-Euler",
-  },
+    source: "Wikipedia",
+    url: "https://en.wikipedia.org/wiki/Leonhard_Euler",
+  }
 ];

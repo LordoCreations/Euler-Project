@@ -1,3 +1,5 @@
+import { asset } from '$app/paths';
+
 export const navLinks = [
   { id: "intro", label: "Introduction" },
   { id: "timeline", label: "Timeline" },
@@ -53,7 +55,7 @@ export const hero = {
   years: "1707 – 1783",
   tagline: "The King of Mathematics",
   intro: `Leonhard Euler was a Swiss mathematician and physicist whose work shaped nearly every branch of 18th-century mathematics. From Basel to St. Petersburg to Berlin, he produced more than 800 works, ranging from integrating Leibniz's differential calculus with Newton's method of fluxions to inventing much of modern mathematical notation. Even after losing his vision in one eye and eventually the other, he continued his work, up unto his death at an age of 76 in St. Petersburg.`,
-  portrait: "/eulerportrait.jpg",
+  portrait: asset('/eulerportrait.jpg'),
   portraitAlt: "Leonhard Euler",
 };
 

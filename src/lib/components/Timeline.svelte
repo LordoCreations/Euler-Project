@@ -224,7 +224,7 @@
             >
           </div>
           <h3 class="detail-title">{timeline[activeIndex].label}</h3>
-          <p class="detail-body">{timeline[activeIndex].description}</p>
+          <p class="detail-body">{@html timeline[activeIndex].description}</p>
         </div>
       {/key}
     </div>

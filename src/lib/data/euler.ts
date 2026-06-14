@@ -1,4 +1,5 @@
-import { asset } from '$app/paths';
+import { asset } from "$app/paths";
+import katex from "katex";
 
 export const navLinks = [
   { id: "intro", label: "Introduction" },
@@ -55,7 +56,7 @@ export const hero = {
   years: "1707 – 1783",
   tagline: "The King of Mathematics",
   intro: `Leonhard Euler was a Swiss mathematician and physicist whose work shaped nearly every branch of 18th-century mathematics. From Basel to St. Petersburg to Berlin, he produced more than 800 works, ranging from integrating Leibniz's differential calculus with Newton's method of fluxions to inventing much of modern mathematical notation. Even after losing his vision in one eye and eventually the other, he continued his work, up unto his death at an age of 76 in St. Petersburg.`,
-  portrait: asset('/eulerportrait.jpg'),
+  portrait: asset("/eulerportrait.jpg"),
   portraitAlt: "Leonhard Euler",
 };
 
@@ -80,13 +81,13 @@ export const interests: InterestCard[] = [
 export const calculus = {
   title: "Contributions to Calculus",
   subtitle: "How Euler improved mathematical analysis",
-  body: `Euler's calculus textbooks include Institutiones calculi differentialis (1755) and Institutiones calculi integralis (1768–70). These textbooks became the prototypes for modern calculus instruction. They contained formulae for differentiation and indefinite integration, many invented by Euler himself, along with methods for determining work done by a force and solving geometric problems.`,
+  body: `Euler's calculus textbooks include <i>Institutiones calculi differentialis</i> (1755) and <i>Institutiones calculi integralis (1768–70)</i>. These textbooks became the prototypes for modern calculus instruction. They contained formulae for differentiation and indefinite integration, many invented by Euler himself, along with methods for determining work done by a force and solving geometric problems.`,
   highlights: [
     "Euler integrated Leibniz's differential calculus and Newton's method of fluxions into unified mathematical analysis",
-    "Euler introduced the concept of a function in Introduction in Analysin Infinitorum (1748)",
+    "Euler introduced the concept of a function in <i>Introductio in analysin infinitorum</i> (1748)",
     "Euler developed beta and gamma functions, integrating factors, and advances in linear differential equations",
     "Euler pioneered the calculus of variations and applied analysis to physics and mechanics",
-    "Euler created notations that we use today: f(x), e, Σ, π, i, and finite-difference symbols Δy, Δ²y",
+    `Euler created notations that we use today: ${katex.renderToString("f(x)")}, ${katex.renderToString("e")}, ${katex.renderToString("\\sum")}, ${katex.renderToString("\\pi")}, ${katex.renderToString("i")}, and finite-difference symbols ${katex.renderToString("\\Delta y")}, ${katex.renderToString("\\Delta^2 y")}`,
   ],
 };
 
@@ -132,7 +133,7 @@ export const timeline: TimelineEvent[] = [
     label: "Academia",
     location: "Basel, Switzerland",
     description:
-      "Euler received a Master of Philosophy comparing the philosophies of Descartes and Newton. Later, he enrolled in the theological faculty at the University of Basel. Later, in 1726, Euler completed a dissertation <i>De Sono<\i>, which discussed the propagation of sound. However, he was unable to use this to obtain a position at the university.",
+      "Euler received a Master of Philosophy comparing the philosophies of Descartes and Newton. Later, he enrolled in the theological faculty at the University of Basel. Later, in 1726, Euler completed a dissertation <i>De Sono</i>, which discussed the propagation of sound. However, he was unable to use this to obtain a position at the university.",
   },
   {
     year: 1727,
@@ -168,7 +169,7 @@ export const timeline: TimelineEvent[] = [
     label: "The Concept of a Function",
     location: "Berlin, Prussia",
     description:
-      "In Introductio in analysin infinitorum, Euler introduced the modern idea of a mathematical function and other foundational concepts for analysis.",
+      "In <i>Introductio in analysin infinitorum</i>, Euler introduced the modern idea of a mathematical function and other foundational concepts for analysis.",
     highlight: true,
   },
   {
@@ -176,7 +177,7 @@ export const timeline: TimelineEvent[] = [
     label: "Differential Calculus",
     location: "Berlin, Prussia",
     description:
-      "Inside of Institutiones calculi differentialis, Euler introduced many new notations, such as sigma notation with Σ, the symbol e for the base of a natural logarithm, using a, b, c for the sides of a triangle (and A, B, C for the opposing angles), i for imaginary numbers, and using the π to represent pi.",
+      `Inside of <i>Institutiones calculi differentialis</i>, Euler introduced many new notations, such as sigma notation with ${katex.renderToString('\\sum')}, the symbol ${katex.renderToString('e')} for the base of a natural logarithm, using ${katex.renderToString('a, b, c')} for the sides of a triangle (and ${katex.renderToString('A, B, C')} for the opposing angles), ${katex.renderToString('i')} for imaginary numbers, and using ${katex.renderToString('\\pi')} to represent pi.`,
     highlight: true,
   },
   {
@@ -210,7 +211,7 @@ export const gallery: GalleryItem[] = [
     image:
       "https://mathequalslove.net/wp-content/uploads/2026/03/Derivative-Notation-Posters-4-1024x792.jpg",
     imageAlt: "Euler’s notation for Derivatives and higher order Derivatives",
-    body: "Euler was responsible for the notation f(x) for a function (1734), e for the base of a natural logarithm (1727), i for √−1 (1777), π for pi, and Σ for summation (1755), which are still used in every calculus classroom today.",
+    body: `Euler was responsible for the notation ${katex.renderToString("f(x)")} for a function (1734), ${katex.renderToString("e")} for the base of a natural logarithm (1727), ${katex.renderToString("i")} for ${katex.renderToString("\\sqrt{-1}")} (1777), ${katex.renderToString("\\pi")} for pi, and ${katex.renderToString("\\sum")} for summation (1755), which are still used in every calculus classroom today.`,
     tag: "Calculus",
   },
   {

@@ -80,11 +80,11 @@
             <div class="text-container">
               {#if expandedId === item.id}
                 <p class="full-body" transition:fade={{ duration: 200 }}>
-                  {item.body}
+                  {@html item.body}
                 </p>
               {:else}
                 <p class="preview" transition:fade={{ duration: 200 }}>
-                  {item.body.slice(0, 100)}…
+                  {@html item.body.slice(0, 100)}…
                 </p>
               {/if}
             </div>

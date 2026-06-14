@@ -34,14 +34,14 @@
 			<h2 class="section-title" data-reveal>
 				Shaping the <span class="gradient-text">language of change</span>
 			</h2>
-			<p class="body" data-reveal>{calculus.body}</p>
+			<p class="body" data-reveal>{@html calculus.body}</p>
 		</div>
 
 		<ul class="highlights">
 			{#each calculus.highlights as item, i}
 				<li class="highlight glass-card" data-reveal>
 					<span class="num">{String(i + 1).padStart(2, '0')}</span>
-					<p>{item}</p>
+					<p>{@html item}</p>
 				</li>
 			{/each}
 		</ul>
